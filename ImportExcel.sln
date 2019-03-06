@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportExcel", "ImportExcel\ImportExcel.csproj", "{138FD8DD-EB14-47C4-84D5-218AEACB5043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageToBlob", "ImageToBlob\ImageToBlob.csproj", "{6D8B0977-2928-40DC-AB51-DEE820E62C3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{138FD8DD-EB14-47C4-84D5-218AEACB5043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{138FD8DD-EB14-47C4-84D5-218AEACB5043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{138FD8DD-EB14-47C4-84D5-218AEACB5043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{138FD8DD-EB14-47C4-84D5-218AEACB5043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D8B0977-2928-40DC-AB51-DEE820E62C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D8B0977-2928-40DC-AB51-DEE820E62C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D8B0977-2928-40DC-AB51-DEE820E62C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D8B0977-2928-40DC-AB51-DEE820E62C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38FEF90A-C667-4E4B-8B7B-21BBBEBB80A7}
+	EndGlobalSection
+EndGlobal

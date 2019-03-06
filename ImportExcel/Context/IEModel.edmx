@@ -1,0 +1,809 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TestCoreFrameModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TestCoreFrame.dbo.COMPANIES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="COMPANIES">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PK_COMPANY" />
+            <PropertyRef Name="FK_COUNTRY" />
+            <PropertyRef Name="FK_PROVINCES" />
+            <PropertyRef Name="FK_BILL_COUNTRY" />
+            <PropertyRef Name="FK_BILL_PROVINCES" />
+            <PropertyRef Name="FK_CURRENCY" />
+            <PropertyRef Name="FK_CURRENCY_REPORT" />
+            <PropertyRef Name="FK_LANGUAGE" />
+            <PropertyRef Name="rowguid" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="smallint" Nullable="false" />
+          <Property Name="PK_COMPANY" Type="smallint" Nullable="false" />
+          <Property Name="DES_COMPANY" Type="varchar" MaxLength="255" />
+          <Property Name="LEGAL_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="BILL_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="VAT_NUMBER1" Type="varchar" MaxLength="20" />
+          <Property Name="VAT_NUMBER2" Type="varchar" MaxLength="20" />
+          <Property Name="FK_COUNTRY" Type="smallint" Nullable="false" />
+          <Property Name="FK_PROVINCES" Type="smallint" Nullable="false" />
+          <Property Name="CITY" Type="varchar" MaxLength="255" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="255" />
+          <Property Name="POSTAL_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="FK_BILL_COUNTRY" Type="smallint" Nullable="false" />
+          <Property Name="FK_BILL_PROVINCES" Type="smallint" Nullable="false" />
+          <Property Name="BILL_CITY" Type="varchar" MaxLength="255" />
+          <Property Name="BILL_ADDRESS" Type="varchar" MaxLength="255" />
+          <Property Name="BILL_POSTAL_CODE" Type="varchar" MaxLength="10" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="FAX" Type="varchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+          <Property Name="FK_CURRENCY" Type="smallint" Nullable="false" />
+          <Property Name="FK_CURRENCY_REPORT" Type="smallint" Nullable="false" />
+          <Property Name="FK_LANGUAGE" Type="smallint" Nullable="false" />
+          <Property Name="ARTICLE_PREFIX" Type="varchar" MaxLength="5" />
+          <Property Name="SERVER_IP_ADDRESS" Type="varchar" MaxLength="50" />
+          <Property Name="SERVER_SERVICE_PORT" Type="varchar" MaxLength="5" />
+          <Property Name="SERVER_DOCUMENTS_DIR" Type="varchar" MaxLength="500" />
+          <Property Name="SERVER_DOCUMENTS_CACHE_DIR" Type="varchar" MaxLength="500" />
+          <Property Name="SERVER_SHIPMENTS_DIR" Type="varchar" MaxLength="1000" />
+          <Property Name="INTERFACE_ACCOUNTING_MODEL" Type="smallint" />
+          <Property Name="LINKED_SERVER_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="FK_CREATION_USER" Type="smallint" />
+          <Property Name="CREATION_DATE" Type="datetime" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="smallint" />
+          <Property Name="LAST_UPDATE_DATE" Type="datetime" />
+          <Property Name="ts" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COUNTRIES">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PK_COUNTRY" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="smallint" Nullable="false" />
+          <Property Name="PK_COUNTRY" Type="smallint" Nullable="false" />
+          <Property Name="DES_COUNTRY" Type="varchar" MaxLength="30" />
+          <Property Name="ISO_CODE" Type="char" MaxLength="3" />
+          <Property Name="ISO_EXT_CODE" Type="char" MaxLength="3" />
+          <Property Name="CALL_CODE_PREFIX" Type="varchar" MaxLength="4" />
+          <Property Name="ISO3166_NUMBER" Type="smallint" />
+          <Property Name="ZIP_CODE_MASK" Type="varchar" MaxLength="20" />
+          <Property Name="IS_MEMBER_OF_EEC" Type="bit" />
+          <Property Name="FK_CREATION_USER" Type="smallint" />
+          <Property Name="CREATION_DATE" Type="datetime" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="smallint" />
+          <Property Name="LAST_UPDATE_DATE" Type="datetime" />
+          <Property Name="ts" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FK_STATUS" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Credits" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="EnrollmentID" />
+          </Key>
+          <Property Name="EnrollmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CourseID" Type="int" Nullable="false" />
+          <Property Name="Grade" Type="int" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GBS_CATEGORY_MATRIX">
+          <Key>
+            <PropertyRef Name="GCMID" />
+          </Key>
+          <Property Name="Cat_pk" Type="nvarchar" MaxLength="255" />
+          <Property Name="Category_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sub-cat_pk" Type="nvarchar" MaxLength="255" />
+          <Property Name="Sub-Category_name" Type="nvarchar" MaxLength="255" />
+          <Property Name="SUB-SUB-Cat_PK" Type="nvarchar" MaxLength="255" />
+          <Property Name="SUB-sub-category_NAME" Type="nvarchar" MaxLength="255" />
+          <Property Name="MERCH_Main" Type="nvarchar" MaxLength="255" />
+          <Property Name="MERCH_Backup" Type="nvarchar" MaxLength="255" />
+          <Property Name="fk_company_bo" Type="smallint" />
+          <Property Name="FK_MERCH" Type="smallint" />
+          <Property Name="FK_sub_MERCH" Type="smallint" />
+          <Property Name="fk_Buying_team" Type="int" />
+          <Property Name="fk_Purchasing_category" Type="varchar" MaxLength="10" />
+          <Property Name="fk_Purchasing_Subcategory" Type="varchar" MaxLength="10" />
+          <Property Name="IS_DEFAULT" Type="bit" />
+          <Property Name="MERCH_COMP" Type="smallint" />
+          <Property Name="OLD_FK_purchasing_subcat" Type="int" />
+          <Property Name="OLD_FK_purchasing_cat" Type="int" />
+          <Property Name="GCMID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnrollmentDate" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="FirstMidName" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tblEducation">
+          <Key>
+            <PropertyRef Name="ETID" />
+          </Key>
+          <Property Name="ETID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClientTableName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="TEAMS">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PFK_COMPANY" />
+            <PropertyRef Name="PK_TEAM" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="smallint" Nullable="false" />
+          <Property Name="PFK_COMPANY" Type="smallint" Nullable="false" />
+          <Property Name="PK_TEAM" Type="smallint" Nullable="false" />
+          <Property Name="SHORT_TEAM" Type="varchar" MaxLength="50" />
+          <Property Name="DES_TEAM" Type="varchar" MaxLength="255" />
+          <Property Name="IS_ACTIVE" Type="bit" />
+          <Property Name="FK_ACCOUNT_MANAGER" Type="smallint" />
+          <Property Name="FK_CREATION_USER" Type="smallint" />
+          <Property Name="CREATION_DATE" Type="datetime" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="smallint" />
+          <Property Name="LAST_UPDATE_DATE" Type="datetime" />
+          <Property Name="ts" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USERS">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PK_USER" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="smallint" Nullable="false" />
+          <Property Name="PK_USER" Type="smallint" Nullable="false" />
+          <Property Name="FK_COMPANY" Type="smallint" Nullable="false" />
+          <Property Name="FK_DIVISION" Type="smallint" Nullable="false" />
+          <Property Name="LOGIN" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PASSWORD" Type="binary" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+          <Property Name="CAN_SIGN_ORDER_CONFIRM" Type="bit" />
+          <Property Name="SIGN_ORDER_CONFIRM_PASSWORD" Type="binary" MaxLength="50" />
+          <Property Name="PHONE" Type="varchar" MaxLength="50" />
+          <Property Name="FAX" Type="varchar" MaxLength="50" />
+          <Property Name="IS_ENABLED" Type="bit" />
+          <Property Name="IS_SUPER_USER" Type="bit" />
+          <Property Name="FK_USER_ACCESS_PROFILE" Type="smallint" />
+          <Property Name="IS_NET_WAM_USER" Type="bit" />
+          <Property Name="FK_NET_SECURITY_LEVEL" Type="smallint" />
+          <Property Name="NET_FILES_ACCESS" Type="bit" />
+          <Property Name="NET_OLD_INTRANET_ACCESS" Type="bit" />
+          <Property Name="HAS_NEWS" Type="bit" />
+          <Property Name="FK_CREATION_USER" Type="smallint" />
+          <Property Name="CREATION_DATE" Type="datetime" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="smallint" />
+          <Property Name="LAST_UPDATE_DATE" Type="datetime" />
+          <Property Name="ts" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PASSWORD1" Type="varchar" MaxLength="255" />
+          <Property Name="SIGN_ORDER_CONFIRM_PASSWORD_PFCTS" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Enrollment_Course_CourseID">
+          <End Role="Course" Type="Self.Course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Student_StudentID">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TEAMS_USERS">
+          <End Role="USERS" Type="Self.USERS" Multiplicity="0..1" />
+          <End Role="TEAMS" Type="Self.TEAMS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USERS">
+              <PropertyRef Name="PFK_ENTERPRISE" />
+              <PropertyRef Name="PK_USER" />
+            </Principal>
+            <Dependent Role="TEAMS">
+              <PropertyRef Name="PFK_ENTERPRISE" />
+              <PropertyRef Name="FK_ACCOUNT_MANAGER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestCoreFrameModelStoreContainer">
+          <EntitySet Name="COUNTRIES" EntityType="Self.COUNTRIES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GBS_CATEGORY_MATRIX" EntityType="Self.GBS_CATEGORY_MATRIX" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEducation" EntityType="Self.tblEducation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TEAMS" EntityType="Self.TEAMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="COMPANIES" EntityType="Self.COMPANIES" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [COMPANIES].[PFK_ENTERPRISE] AS [PFK_ENTERPRISE], 
+    [COMPANIES].[PK_COMPANY] AS [PK_COMPANY], 
+    [COMPANIES].[DES_COMPANY] AS [DES_COMPANY], 
+    [COMPANIES].[LEGAL_NAME] AS [LEGAL_NAME], 
+    [COMPANIES].[BILL_NAME] AS [BILL_NAME], 
+    [COMPANIES].[VAT_NUMBER1] AS [VAT_NUMBER1], 
+    [COMPANIES].[VAT_NUMBER2] AS [VAT_NUMBER2], 
+    [COMPANIES].[FK_COUNTRY] AS [FK_COUNTRY], 
+    [COMPANIES].[FK_PROVINCES] AS [FK_PROVINCES], 
+    [COMPANIES].[CITY] AS [CITY], 
+    [COMPANIES].[ADDRESS] AS [ADDRESS], 
+    [COMPANIES].[POSTAL_CODE] AS [POSTAL_CODE], 
+    [COMPANIES].[FK_BILL_COUNTRY] AS [FK_BILL_COUNTRY], 
+    [COMPANIES].[FK_BILL_PROVINCES] AS [FK_BILL_PROVINCES], 
+    [COMPANIES].[BILL_CITY] AS [BILL_CITY], 
+    [COMPANIES].[BILL_ADDRESS] AS [BILL_ADDRESS], 
+    [COMPANIES].[BILL_POSTAL_CODE] AS [BILL_POSTAL_CODE], 
+    [COMPANIES].[PHONE] AS [PHONE], 
+    [COMPANIES].[FAX] AS [FAX], 
+    [COMPANIES].[EMAIL] AS [EMAIL], 
+    [COMPANIES].[FK_CURRENCY] AS [FK_CURRENCY], 
+    [COMPANIES].[FK_CURRENCY_REPORT] AS [FK_CURRENCY_REPORT], 
+    [COMPANIES].[FK_LANGUAGE] AS [FK_LANGUAGE], 
+    [COMPANIES].[ARTICLE_PREFIX] AS [ARTICLE_PREFIX], 
+    [COMPANIES].[SERVER_IP_ADDRESS] AS [SERVER_IP_ADDRESS], 
+    [COMPANIES].[SERVER_SERVICE_PORT] AS [SERVER_SERVICE_PORT], 
+    [COMPANIES].[SERVER_DOCUMENTS_DIR] AS [SERVER_DOCUMENTS_DIR], 
+    [COMPANIES].[SERVER_DOCUMENTS_CACHE_DIR] AS [SERVER_DOCUMENTS_CACHE_DIR], 
+    [COMPANIES].[SERVER_SHIPMENTS_DIR] AS [SERVER_SHIPMENTS_DIR], 
+    [COMPANIES].[INTERFACE_ACCOUNTING_MODEL] AS [INTERFACE_ACCOUNTING_MODEL], 
+    [COMPANIES].[LINKED_SERVER_NAME] AS [LINKED_SERVER_NAME], 
+    [COMPANIES].[FK_CREATION_USER] AS [FK_CREATION_USER], 
+    [COMPANIES].[CREATION_DATE] AS [CREATION_DATE], 
+    [COMPANIES].[FK_LAST_UPDATE_USER] AS [FK_LAST_UPDATE_USER], 
+    [COMPANIES].[LAST_UPDATE_DATE] AS [LAST_UPDATE_DATE], 
+    [COMPANIES].[ts] AS [ts], 
+    [COMPANIES].[rowguid] AS [rowguid]
+    FROM [dbo].[COMPANIES] AS [COMPANIES]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Enrollment_Course_CourseID" Association="Self.FK_Enrollment_Course_CourseID">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Student_StudentID" Association="Self.FK_Enrollment_Student_StudentID">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Enrollment" EntitySet="Enrollment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TEAMS_USERS" Association="Self.FK_TEAMS_USERS">
+            <End Role="USERS" EntitySet="USERS" />
+            <End Role="TEAMS" EntitySet="TEAMS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TestCoreFrameModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="CourseID" />
+          </Key>
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Credits" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollment_Course_CourseID" FromRole="Course" ToRole="Enrollment" />
+        </EntityType>
+        <EntityType Name="Enrollment">
+          <Key>
+            <PropertyRef Name="EnrollmentID" />
+          </Key>
+          <Property Name="EnrollmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CourseID" Type="Int32" Nullable="false" />
+          <Property Name="Grade" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Enrollment_Course_CourseID" FromRole="Enrollment" ToRole="Course" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Enrollment_Student_StudentID" FromRole="Enrollment" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnrollmentDate" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="FirstMidName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Enrollments" Relationship="Self.FK_Enrollment_Student_StudentID" FromRole="Student" ToRole="Enrollment" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tblEducation">
+          <Key>
+            <PropertyRef Name="ETID" />
+          </Key>
+          <Property Name="ETID" Type="Int32" Nullable="false" />
+          <Property Name="TableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ClientTableName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <Association Name="FK_Enrollment_Course_CourseID">
+          <End Role="Course" Type="Self.Course" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="CourseID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enrollment_Student_StudentID">
+          <End Role="Student" Type="Self.Student" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Enrollment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TestCoreFrameEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="Enrollments" EntityType="Self.Enrollment" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tblEducations" EntityType="Self.tblEducation" />
+          <AssociationSet Name="FK_Enrollment_Course_CourseID" Association="Self.FK_Enrollment_Course_CourseID">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enrollment_Student_StudentID" Association="Self.FK_Enrollment_Student_StudentID">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="Enrollment" EntitySet="Enrollments" />
+          </AssociationSet>
+          <EntitySet Name="GBS_CATEGORY_MATRIX" EntityType="TestCoreFrameModel.GBS_CATEGORY_MATRIX" />
+          <EntitySet Name="COMPANIES" EntityType="TestCoreFrameModel.COMPANy" />
+          <EntitySet Name="COUNTRIES" EntityType="TestCoreFrameModel.COUNTRy" />
+          <EntitySet Name="USERS" EntityType="TestCoreFrameModel.USER" />
+          <EntitySet Name="TEAMS" EntityType="TestCoreFrameModel.TEAM" />
+          <AssociationSet Name="FK_TEAMS_USERS" Association="TestCoreFrameModel.FK_TEAMS_USERS">
+            <End Role="USER" EntitySet="USERS" />
+            <End Role="TEAM" EntitySet="TEAMS" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="GBS_CATEGORY_MATRIX">
+          <Key>
+            <PropertyRef Name="GCMID" />
+          </Key>
+          <Property Name="Cat_pk" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sub_cat_pk" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Sub_Category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SUB_SUB_Cat_PK" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SUB_sub_category_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MERCH_Main" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MERCH_Backup" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fk_company_bo" Type="Int16" />
+          <Property Name="FK_MERCH" Type="Int16" />
+          <Property Name="FK_sub_MERCH" Type="Int16" />
+          <Property Name="fk_Buying_team" Type="Int32" />
+          <Property Name="fk_Purchasing_category" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="fk_Purchasing_Subcategory" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IS_DEFAULT" Type="Boolean" />
+          <Property Name="MERCH_COMP" Type="Int16" />
+          <Property Name="OLD_FK_purchasing_subcat" Type="Int32" />
+          <Property Name="OLD_FK_purchasing_cat" Type="Int32" />
+          <Property Name="GCMID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="COMPANy">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PK_COMPANY" />
+            <PropertyRef Name="FK_COUNTRY" />
+            <PropertyRef Name="FK_PROVINCES" />
+            <PropertyRef Name="FK_BILL_COUNTRY" />
+            <PropertyRef Name="FK_BILL_PROVINCES" />
+            <PropertyRef Name="FK_CURRENCY" />
+            <PropertyRef Name="FK_CURRENCY_REPORT" />
+            <PropertyRef Name="FK_LANGUAGE" />
+            <PropertyRef Name="rowguid" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="Int16" Nullable="false" />
+          <Property Name="PK_COMPANY" Type="Int16" Nullable="false" />
+          <Property Name="DES_COMPANY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="LEGAL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BILL_NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="VAT_NUMBER1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VAT_NUMBER2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FK_COUNTRY" Type="Int16" Nullable="false" />
+          <Property Name="FK_PROVINCES" Type="Int16" Nullable="false" />
+          <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="POSTAL_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FK_BILL_COUNTRY" Type="Int16" Nullable="false" />
+          <Property Name="FK_BILL_PROVINCES" Type="Int16" Nullable="false" />
+          <Property Name="BILL_CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BILL_ADDRESS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="BILL_POSTAL_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CURRENCY" Type="Int16" Nullable="false" />
+          <Property Name="FK_CURRENCY_REPORT" Type="Int16" Nullable="false" />
+          <Property Name="FK_LANGUAGE" Type="Int16" Nullable="false" />
+          <Property Name="ARTICLE_PREFIX" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="SERVER_IP_ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SERVER_SERVICE_PORT" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="SERVER_DOCUMENTS_DIR" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SERVER_DOCUMENTS_CACHE_DIR" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SERVER_SHIPMENTS_DIR" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="INTERFACE_ACCOUNTING_MODEL" Type="Int16" />
+          <Property Name="LINKED_SERVER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FK_CREATION_USER" Type="Int16" />
+          <Property Name="CREATION_DATE" Type="DateTime" Precision="3" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="Int16" />
+          <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="COUNTRy">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PK_COUNTRY" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="Int16" Nullable="false" />
+          <Property Name="PK_COUNTRY" Type="Int16" Nullable="false" />
+          <Property Name="DES_COUNTRY" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ISO_CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="ISO_EXT_CODE" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="CALL_CODE_PREFIX" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ISO3166_NUMBER" Type="Int16" />
+          <Property Name="ZIP_CODE_MASK" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IS_MEMBER_OF_EEC" Type="Boolean" />
+          <Property Name="FK_CREATION_USER" Type="Int16" />
+          <Property Name="CREATION_DATE" Type="DateTime" Precision="3" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="Int16" />
+          <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="FK_STATUS" Type="Int16" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PK_USER" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="Int16" Nullable="false" />
+          <Property Name="PK_USER" Type="Int16" Nullable="false" />
+          <Property Name="FK_COMPANY" Type="Int16" Nullable="false" />
+          <Property Name="FK_DIVISION" Type="Int16" Nullable="false" />
+          <Property Name="LOGIN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PASSWORD" Type="Binary" Nullable="false" MaxLength="50" FixedLength="true" />
+          <Property Name="NAME" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CAN_SIGN_ORDER_CONFIRM" Type="Boolean" />
+          <Property Name="SIGN_ORDER_CONFIRM_PASSWORD" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IS_ENABLED" Type="Boolean" />
+          <Property Name="IS_SUPER_USER" Type="Boolean" />
+          <Property Name="FK_USER_ACCESS_PROFILE" Type="Int16" />
+          <Property Name="IS_NET_WAM_USER" Type="Boolean" />
+          <Property Name="FK_NET_SECURITY_LEVEL" Type="Int16" />
+          <Property Name="NET_FILES_ACCESS" Type="Boolean" />
+          <Property Name="NET_OLD_INTRANET_ACCESS" Type="Boolean" />
+          <Property Name="HAS_NEWS" Type="Boolean" />
+          <Property Name="FK_CREATION_USER" Type="Int16" />
+          <Property Name="CREATION_DATE" Type="DateTime" Precision="3" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="Int16" />
+          <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <Property Name="PASSWORD1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SIGN_ORDER_CONFIRM_PASSWORD_PFCTS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TEAMS" Relationship="TestCoreFrameModel.FK_TEAMS_USERS" FromRole="USER" ToRole="TEAM" />
+        </EntityType>
+        <EntityType Name="TEAM">
+          <Key>
+            <PropertyRef Name="PFK_ENTERPRISE" />
+            <PropertyRef Name="PFK_COMPANY" />
+            <PropertyRef Name="PK_TEAM" />
+          </Key>
+          <Property Name="PFK_ENTERPRISE" Type="Int16" Nullable="false" />
+          <Property Name="PFK_COMPANY" Type="Int16" Nullable="false" />
+          <Property Name="PK_TEAM" Type="Int16" Nullable="false" />
+          <Property Name="SHORT_TEAM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DES_TEAM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IS_ACTIVE" Type="Boolean" />
+          <Property Name="FK_ACCOUNT_MANAGER" Type="Int16" />
+          <Property Name="FK_CREATION_USER" Type="Int16" />
+          <Property Name="CREATION_DATE" Type="DateTime" Precision="3" />
+          <Property Name="FK_LAST_UPDATE_USER" Type="Int16" />
+          <Property Name="LAST_UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ts" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="rowguid" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="TestCoreFrameModel.FK_TEAMS_USERS" FromRole="TEAM" ToRole="USER" />
+        </EntityType>
+        <Association Name="FK_TEAMS_USERS">
+          <End Type="TestCoreFrameModel.USER" Role="USER" Multiplicity="0..1" />
+          <End Type="TestCoreFrameModel.TEAM" Role="TEAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="PFK_ENTERPRISE" />
+              <PropertyRef Name="PK_USER" />
+            </Principal>
+            <Dependent Role="TEAM">
+              <PropertyRef Name="PFK_ENTERPRISE" />
+              <PropertyRef Name="FK_ACCOUNT_MANAGER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TestCoreFrameModelStoreContainer" CdmEntityContainer="TestCoreFrameEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enrollments">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.Enrollment">
+              <MappingFragment StoreEntitySet="Enrollment">
+                <ScalarProperty Name="EnrollmentID" ColumnName="EnrollmentID" />
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EnrollmentDate" ColumnName="EnrollmentDate" />
+                <ScalarProperty Name="FirstMidName" ColumnName="FirstMidName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEducations">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.tblEducation">
+              <MappingFragment StoreEntitySet="tblEducation">
+                <ScalarProperty Name="ETID" ColumnName="ETID" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ClientTableName" ColumnName="ClientTableName" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GBS_CATEGORY_MATRIX">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.GBS_CATEGORY_MATRIX">
+              <MappingFragment StoreEntitySet="GBS_CATEGORY_MATRIX">
+                <ScalarProperty Name="GCMID" ColumnName="GCMID" />
+                <ScalarProperty Name="OLD_FK_purchasing_cat" ColumnName="OLD_FK_purchasing_cat" />
+                <ScalarProperty Name="OLD_FK_purchasing_subcat" ColumnName="OLD_FK_purchasing_subcat" />
+                <ScalarProperty Name="MERCH_COMP" ColumnName="MERCH_COMP" />
+                <ScalarProperty Name="IS_DEFAULT" ColumnName="IS_DEFAULT" />
+                <ScalarProperty Name="fk_Purchasing_Subcategory" ColumnName="fk_Purchasing_Subcategory" />
+                <ScalarProperty Name="fk_Purchasing_category" ColumnName="fk_Purchasing_category" />
+                <ScalarProperty Name="fk_Buying_team" ColumnName="fk_Buying_team" />
+                <ScalarProperty Name="FK_sub_MERCH" ColumnName="FK_sub_MERCH" />
+                <ScalarProperty Name="FK_MERCH" ColumnName="FK_MERCH" />
+                <ScalarProperty Name="fk_company_bo" ColumnName="fk_company_bo" />
+                <ScalarProperty Name="MERCH_Backup" ColumnName="MERCH_Backup" />
+                <ScalarProperty Name="MERCH_Main" ColumnName="MERCH_Main" />
+                <ScalarProperty Name="SUB_sub_category_NAME" ColumnName="SUB-sub-category_NAME" />
+                <ScalarProperty Name="SUB_SUB_Cat_PK" ColumnName="SUB-SUB-Cat_PK" />
+                <ScalarProperty Name="Sub_Category_name" ColumnName="Sub-Category_name" />
+                <ScalarProperty Name="Sub_cat_pk" ColumnName="Sub-cat_pk" />
+                <ScalarProperty Name="Category_name" ColumnName="Category_name" />
+                <ScalarProperty Name="Cat_pk" ColumnName="Cat_pk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COMPANIES">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.COMPANy">
+              <MappingFragment StoreEntitySet="COMPANIES">
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ts" ColumnName="ts" />
+                <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+                <ScalarProperty Name="FK_LAST_UPDATE_USER" ColumnName="FK_LAST_UPDATE_USER" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="FK_CREATION_USER" ColumnName="FK_CREATION_USER" />
+                <ScalarProperty Name="LINKED_SERVER_NAME" ColumnName="LINKED_SERVER_NAME" />
+                <ScalarProperty Name="INTERFACE_ACCOUNTING_MODEL" ColumnName="INTERFACE_ACCOUNTING_MODEL" />
+                <ScalarProperty Name="SERVER_SHIPMENTS_DIR" ColumnName="SERVER_SHIPMENTS_DIR" />
+                <ScalarProperty Name="SERVER_DOCUMENTS_CACHE_DIR" ColumnName="SERVER_DOCUMENTS_CACHE_DIR" />
+                <ScalarProperty Name="SERVER_DOCUMENTS_DIR" ColumnName="SERVER_DOCUMENTS_DIR" />
+                <ScalarProperty Name="SERVER_SERVICE_PORT" ColumnName="SERVER_SERVICE_PORT" />
+                <ScalarProperty Name="SERVER_IP_ADDRESS" ColumnName="SERVER_IP_ADDRESS" />
+                <ScalarProperty Name="ARTICLE_PREFIX" ColumnName="ARTICLE_PREFIX" />
+                <ScalarProperty Name="FK_LANGUAGE" ColumnName="FK_LANGUAGE" />
+                <ScalarProperty Name="FK_CURRENCY_REPORT" ColumnName="FK_CURRENCY_REPORT" />
+                <ScalarProperty Name="FK_CURRENCY" ColumnName="FK_CURRENCY" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="BILL_POSTAL_CODE" ColumnName="BILL_POSTAL_CODE" />
+                <ScalarProperty Name="BILL_ADDRESS" ColumnName="BILL_ADDRESS" />
+                <ScalarProperty Name="BILL_CITY" ColumnName="BILL_CITY" />
+                <ScalarProperty Name="FK_BILL_PROVINCES" ColumnName="FK_BILL_PROVINCES" />
+                <ScalarProperty Name="FK_BILL_COUNTRY" ColumnName="FK_BILL_COUNTRY" />
+                <ScalarProperty Name="POSTAL_CODE" ColumnName="POSTAL_CODE" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="FK_PROVINCES" ColumnName="FK_PROVINCES" />
+                <ScalarProperty Name="FK_COUNTRY" ColumnName="FK_COUNTRY" />
+                <ScalarProperty Name="VAT_NUMBER2" ColumnName="VAT_NUMBER2" />
+                <ScalarProperty Name="VAT_NUMBER1" ColumnName="VAT_NUMBER1" />
+                <ScalarProperty Name="BILL_NAME" ColumnName="BILL_NAME" />
+                <ScalarProperty Name="LEGAL_NAME" ColumnName="LEGAL_NAME" />
+                <ScalarProperty Name="DES_COMPANY" ColumnName="DES_COMPANY" />
+                <ScalarProperty Name="PK_COMPANY" ColumnName="PK_COMPANY" />
+                <ScalarProperty Name="PFK_ENTERPRISE" ColumnName="PFK_ENTERPRISE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="COUNTRIES">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.COUNTRy">
+              <MappingFragment StoreEntitySet="COUNTRIES">
+                <ScalarProperty Name="FK_STATUS" ColumnName="FK_STATUS" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ts" ColumnName="ts" />
+                <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+                <ScalarProperty Name="FK_LAST_UPDATE_USER" ColumnName="FK_LAST_UPDATE_USER" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="FK_CREATION_USER" ColumnName="FK_CREATION_USER" />
+                <ScalarProperty Name="IS_MEMBER_OF_EEC" ColumnName="IS_MEMBER_OF_EEC" />
+                <ScalarProperty Name="ZIP_CODE_MASK" ColumnName="ZIP_CODE_MASK" />
+                <ScalarProperty Name="ISO3166_NUMBER" ColumnName="ISO3166_NUMBER" />
+                <ScalarProperty Name="CALL_CODE_PREFIX" ColumnName="CALL_CODE_PREFIX" />
+                <ScalarProperty Name="ISO_EXT_CODE" ColumnName="ISO_EXT_CODE" />
+                <ScalarProperty Name="ISO_CODE" ColumnName="ISO_CODE" />
+                <ScalarProperty Name="DES_COUNTRY" ColumnName="DES_COUNTRY" />
+                <ScalarProperty Name="PK_COUNTRY" ColumnName="PK_COUNTRY" />
+                <ScalarProperty Name="PFK_ENTERPRISE" ColumnName="PFK_ENTERPRISE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERS">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.USER">
+              <MappingFragment StoreEntitySet="USERS">
+                <ScalarProperty Name="SIGN_ORDER_CONFIRM_PASSWORD_PFCTS" ColumnName="SIGN_ORDER_CONFIRM_PASSWORD_PFCTS" />
+                <ScalarProperty Name="PASSWORD1" ColumnName="PASSWORD1" />
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ts" ColumnName="ts" />
+                <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+                <ScalarProperty Name="FK_LAST_UPDATE_USER" ColumnName="FK_LAST_UPDATE_USER" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="FK_CREATION_USER" ColumnName="FK_CREATION_USER" />
+                <ScalarProperty Name="HAS_NEWS" ColumnName="HAS_NEWS" />
+                <ScalarProperty Name="NET_OLD_INTRANET_ACCESS" ColumnName="NET_OLD_INTRANET_ACCESS" />
+                <ScalarProperty Name="NET_FILES_ACCESS" ColumnName="NET_FILES_ACCESS" />
+                <ScalarProperty Name="FK_NET_SECURITY_LEVEL" ColumnName="FK_NET_SECURITY_LEVEL" />
+                <ScalarProperty Name="IS_NET_WAM_USER" ColumnName="IS_NET_WAM_USER" />
+                <ScalarProperty Name="FK_USER_ACCESS_PROFILE" ColumnName="FK_USER_ACCESS_PROFILE" />
+                <ScalarProperty Name="IS_SUPER_USER" ColumnName="IS_SUPER_USER" />
+                <ScalarProperty Name="IS_ENABLED" ColumnName="IS_ENABLED" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="SIGN_ORDER_CONFIRM_PASSWORD" ColumnName="SIGN_ORDER_CONFIRM_PASSWORD" />
+                <ScalarProperty Name="CAN_SIGN_ORDER_CONFIRM" ColumnName="CAN_SIGN_ORDER_CONFIRM" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+                <ScalarProperty Name="FK_DIVISION" ColumnName="FK_DIVISION" />
+                <ScalarProperty Name="FK_COMPANY" ColumnName="FK_COMPANY" />
+                <ScalarProperty Name="PK_USER" ColumnName="PK_USER" />
+                <ScalarProperty Name="PFK_ENTERPRISE" ColumnName="PFK_ENTERPRISE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TEAMS">
+            <EntityTypeMapping TypeName="TestCoreFrameModel.TEAM">
+              <MappingFragment StoreEntitySet="TEAMS">
+                <ScalarProperty Name="rowguid" ColumnName="rowguid" />
+                <ScalarProperty Name="ts" ColumnName="ts" />
+                <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+                <ScalarProperty Name="FK_LAST_UPDATE_USER" ColumnName="FK_LAST_UPDATE_USER" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="FK_CREATION_USER" ColumnName="FK_CREATION_USER" />
+                <ScalarProperty Name="FK_ACCOUNT_MANAGER" ColumnName="FK_ACCOUNT_MANAGER" />
+                <ScalarProperty Name="IS_ACTIVE" ColumnName="IS_ACTIVE" />
+                <ScalarProperty Name="DES_TEAM" ColumnName="DES_TEAM" />
+                <ScalarProperty Name="SHORT_TEAM" ColumnName="SHORT_TEAM" />
+                <ScalarProperty Name="PK_TEAM" ColumnName="PK_TEAM" />
+                <ScalarProperty Name="PFK_COMPANY" ColumnName="PFK_COMPANY" />
+                <ScalarProperty Name="PFK_ENTERPRISE" ColumnName="PFK_ENTERPRISE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

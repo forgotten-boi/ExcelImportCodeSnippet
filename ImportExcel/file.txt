@@ -1,0 +1,23 @@
+2017-06-28 14:25:27.9963|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: Cat_pk Datatype:nvarchar(510)
+2017-06-28 14:25:27.9963|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: Category_name Datatype:nvarchar(510)
+2017-06-28 14:25:27.9963|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: Sub-cat_pk Datatype:nvarchar(510)
+2017-06-28 14:25:27.9963|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: Sub-Category_name Datatype:nvarchar(510)
+2017-06-28 14:25:27.9963|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: SUB-SUB-Cat_PK Datatype:nvarchar(510)
+2017-06-28 14:25:28.0194|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: SUB-sub-category_NAME Datatype:nvarchar(510)
+2017-06-28 14:25:28.0194|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: MERCH_Main Datatype:nvarchar(510)
+2017-06-28 14:25:28.0194|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: MERCH_Backup Datatype:nvarchar(510)
+2017-06-28 14:25:28.0194|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: fk_company_bo Datatype:smallint(2)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: FK_MERCH Datatype:smallint(2)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: FK_sub_MERCH Datatype:smallint(2)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: fk_Buying_team Datatype:int(4)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: fk_Purchasing_category Datatype:varchar(10)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: fk_Purchasing_Subcategory Datatype:varchar(10)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: IS_DEFAULT Datatype:bit(1)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: MERCH_COMP Datatype:smallint(2)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: OLD_FK_purchasing_subcat Datatype:int(4)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: OLD_FK_purchasing_cat Datatype:int(4)
+2017-06-28 14:25:28.0254|INFO|ImportExcel.Controllers.ImportExcelController|Column Names: GCMID Datatype:int(4)
+2017-06-28 14:26:30.8357|ERROR|ImportExcel.Controllers.ImportExcelController|Following row insert failed, SUB_sub_category_NAME:{030101} CHARGERS WALL/WIRELESSCategory_name:{03} TECHNOLOGY
+2017-06-28 14:26:34.2117|ERROR|ImportExcel.Controllers.ImportExcelController|Following row insert failed, SUB_sub_category_NAME:{030101} CHARGERS WALL/WIRELESSCategory_name:{03} TECHNOLOGY
+2017-06-28 14:26:36.9172|ERROR|ImportExcel.Controllers.ImportExcelController|Following row insert failed, SUB_sub_category_NAME:{030102} CHARGERS - OTHERSCategory_name:{03} TECHNOLOGY
+2017-06-28 14:26:39.4993|ERROR|ImportExcel.Controllers.ImportExcelController|Following row insert failed, SUB_sub_category_NAME:{030102} CHARGERS - OTHERSCategory_name:{03} TECHNOLOGY

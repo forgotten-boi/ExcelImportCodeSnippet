@@ -1,0 +1,71 @@
+﻿@model ImportExcel.Models.XmlTable
+@{
+    ViewBag.Title = "ImportExcel";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-success" >
+            <div class="panel-heading">
+
+
+                <div class="panel-heading" style="border:none; text-align:center;background-color:forestgreen;color:white;font-weight:500; margin-left: -15px;">
+                    Import Excel Data <i class="fa fa-caret-down" style="border:none"></i>
+                   @* <button type="button" id="btnExcelHistory" class="pull-right notify-arrow-blue"><i class="fa fa-history" style="border:none"></i></button>*@
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+            <div class="panel-body" >
+                <div class="col-md-12 portlets">
+                    <div class="padd">
+                        <div class="form quick-post">
+                            @using (Html.BeginForm("ImportExcel", "ImportExcel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                            
+
+                                <div class="col-md-12">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger", style = "text-align:center; background: lightcoral;color:white;" })
+                                    <div class="form-horizontal">
+                                        <div class="form-group">
+                                            <span class="control-label col-md-2">Table Name</span>
+                                            <div class="col-md-10">
+                                                @Html.HiddenFor(model => model.TableName, new { @Value = "GBS_CATEGORY_MATRIX" })
+                                                <span>GBS_CATEGORY_MATRIX</span>
+                                                @*  @Html.LabelForModel(Model=>Model.ta)("TableName", (IEnumerable<SelectListItem>)ViewBag.XmlTable, "--टेवलको नाम छान्नुहोस्--", htmlAttributes: new { @class = "form-control", @required = "required", @onchange = "ChangeHead()" })*@
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <span class="control-label col-md-2">Excel file</span>
+                                            <div class="col-md-10">
+                                                <input type="file" id="FileUpload1" name="FileUpload1" class="form-control" required />
+                                            </div>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" class="btn btn-success" id="Submit" name="Submit" value="पेश गर्नुहोस" />
+                                                @*<input name="btnCancel" id="btnCancel" class="btn btn-warning" value="Cancel" type="button" />*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*<table class="table bootstrap-datatable table-condensed">
+                                            <tr><td>Excel file</td><td><input type="file" id="FileUpload1" name="FileUpload1" required /></td></tr>
+                                            <tr><td>टेवलको नाम</td><td>@Html.DropDownList("TableName", (IEnumerable<SelectListItem>)ViewBag.XmlTable, "--टेवलको नाम छान्नुहोस्--", htmlAttributes: new { @class = "form-control", @required = "required", @onchange = "ChangeHead()" })</td></tr>
+                                            <tr><td></td><td><input type="submit" class="btn btn-primary" id="Submit" name="Submit" value="पेश गर्नुहोस" /></td></tr>
+                                            @*<tr><td></td><td><input type="submit" id="Upload" name="Upload" value="Ajax Upload" /></td></tr>
+                                        </table>*@
+                                </div>
+
+
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
